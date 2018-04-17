@@ -1,0 +1,23 @@
+2018-04-16 14:58:09,820 ERROR: Exception on /unfollow/susan [GET] [in /home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/phucnguyen/works/venvweb/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/phucnguyen/works/microblog/app/routes.py", line 125, in unfollow
+    current_user.unfollow(username)
+  File "/home/phucnguyen/works/microblog/app/models.py", line 53, in unfollow
+    if self.is_following(user):
+  File "/home/phucnguyen/works/microblog/app/models.py", line 59, in is_following
+    followers.c.followed_id == user.id).count() > 0
+AttributeError: 'str' object has no attribute 'id'
